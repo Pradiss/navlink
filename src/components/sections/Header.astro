@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import logo from '../../assets/logos/logo.png';
+---
+
+<header class="relative z-20">
+	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+		<a href="/" class="flex items-center">
+			<Image src={logo} alt="NaveLinkNet" class="h-8 w-auto sm:h-9" />
+		</a>
+
+		<button
+			type="button"
+			aria-label="Abrir menu"
+			class="flex h-10 w-10 items-center justify-center rounded-lg text-white hover:bg-white/10"
+		>
+			<Icon name="lucide:menu" class="h-6 w-6" />
+		</button>
+	</div>
+</header>

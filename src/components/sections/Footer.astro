@@ -1,0 +1,112 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import logo from '../../assets/logos/logo.png';
+import anatelLogo from '../../assets/logos/logo-anatel.png';
+
+const whatsappNumber = '5500000000000';
+
+const stats = [
+	{ label: 'Atendimento\npróximo e humanizado', icon: 'lucide:users' },
+	{ label: 'Qualidade\nnos serviços', icon: 'lucide:award' },
+	{ label: 'Presente em\ndiversas cidades da região', icon: 'lucide:map-pin' },
+];
+---
+
+<footer class="relative overflow-hidden bg-[#0a1657] px-6 py-10">
+	<div class="pointer-events-none absolute inset-0">
+		<div class="absolute -top-24 left-1/3 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl"></div>
+	</div>
+
+	<div class="relative mx-auto max-w-6xl">
+		<!-- CTA BAR -->
+		<div class="flex flex-col gap-4 rounded-2xl bg-white p-3 sm:flex-row sm:items-center sm:gap-0">
+			<div class="flex items-center gap-3 px-3 py-2 sm:pr-6">
+				<span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sky-500">
+					<Icon name="simple-icons:whatsapp" class="h-6 w-6" />
+				</span>
+				<p class="text-lg leading-tight font-semibold text-[#0a1657]">
+					Fale com nosso<br />
+					<span class="font-black text-sky-500">time comercial</span>
+				</p>
+			</div>
+
+			<span class="hidden h-12 w-px bg-slate-200 sm:block"></span>
+
+			<a
+				href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá! Quero levar a SKY+ para meus clientes.')}`}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="flex flex-1 items-center justify-center gap-3 rounded-2xl bg-sky-500 px-6 py-4 text-sm font-black tracking-wide text-white transition hover:bg-sky-400 sm:ml-4 sm:text-base"
+			>
+				<Icon name="simple-icons:whatsapp" class="h-5 w-5" />
+				QUERO LEVAR A SKY+ PARA MEUS CLIENTES
+				<Icon name="lucide:chevron-right" class="h-5 w-5 shrink-0" />
+			</a>
+		</div>
+
+		<!-- BRAND + STATS -->
+		<div class="mt-10 grid gap-8 lg:grid-cols-2">
+			<div>
+				<div class="flex flex-wrap items-center gap-4">
+					<Image src={logo} alt="NaveLinkNet" class="h-8 w-auto sm:h-9" />
+
+					<span class="h-9 w-px bg-white/20"></span>
+
+					<span class="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-cyan-400">
+						<span class="flex flex-col items-center leading-none">
+							<span class="text-lg font-black text-cyan-400">10</span>
+							<span class="text-[7px] font-bold tracking-widest text-white uppercase">anos</span>
+						</span>
+					</span>
+				</div>
+
+				<p class="mt-6 text-lg text-blue-100">
+					Mais que internet,<br />
+					<span class="font-bold text-cyan-300">mais conexões para a sua vida.</span>
+				</p>
+
+				<p class="mt-4 max-w-sm text-sm text-blue-200/80">
+					Conectando pessoas com qualidade, estabilidade e atendimento próximo.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-3 gap-4 border-t border-white/10 pt-6 text-center lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+				{
+					stats.map((stat) => (
+						<div class="flex flex-col items-center gap-3">
+							<span class="flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-cyan-300">
+								<Icon name={stat.icon} class="h-6 w-6" />
+							</span>
+							<p class="text-xs font-semibold whitespace-pre-line text-blue-100 sm:text-sm">{stat.label}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+
+		<!-- LEGAL / ANATEL -->
+		<div class="mt-10 flex flex-col gap-6 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+			<p class="max-w-2xl text-xs leading-relaxed text-blue-200/70">
+				A Navelinknet é uma provedora de acesso à internet, devidamente autorizada e registrada junto à Anatel.
+				Planos e serviços sujeitos à análise de crédito. Consulte o regulamento.
+			</p>
+
+			<div class="flex items-center gap-3">
+				<Image src={anatelLogo} alt="ANATEL" class="h-9 w-auto brightness-0 invert" />
+				<span class="h-8 w-px bg-white/20"></span>
+				<p class="text-xs leading-tight text-blue-200/70">
+					Provedor de Acesso<br />
+					à Internet autorizado<br />
+					pela ANATEL.
+				</p>
+			</div>
+		</div>
+
+		<!-- COPYRIGHT -->
+		<div class="mt-6 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-blue-200/60 sm:flex-row sm:items-center sm:justify-between">
+			<p>© {new Date().getFullYear()} Navelinknet. Todos os direitos reservados.</p>
+			<p>Conectando um futuro melhor.</p>
+		</div>
+	</div>
+</footer>

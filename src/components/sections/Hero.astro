@@ -1,0 +1,187 @@
+---
+import { Icon } from 'astro-icon/components';
+import Header from './Header.astro';
+
+const whatsappNumber = '5500000000000';
+
+const plans = [
+	{
+		name: 'Combo Start',
+		speed: '300',
+		unit: 'MEGA',
+		features: [
+			{ icon: 'lucide:wifi', label: 'Wi-Fi incluso' },
+			{ icon: 'lucide:film', label: '2 apps de streaming' },
+			{ icon: 'lucide:users', label: 'Ideal para o dia a dia' },
+		],
+		price: '79,90',
+	},
+	{
+		name: 'Combo Full',
+		speed: '850',
+		unit: 'MEGA',
+		features: [
+			{ icon: 'lucide:wifi', label: 'Wi-Fi incluso' },
+			{ icon: 'lucide:film', label: '3 apps de streaming' },
+			{ icon: 'lucide:users', label: 'Ideal para famílias' },
+		],
+		price: '139,80',
+		highlighted: true,
+	},
+	{
+		name: 'Combo VIP',
+		speed: '1 GIGA',
+		unit: '',
+		features: [
+			{ icon: 'lucide:wifi', label: 'Wi-Fi incluso' },
+			{ icon: 'lucide:film', label: '4 apps de streaming' },
+			{ icon: 'lucide:users', label: 'Máxima performance' },
+		],
+		price: '169,90',
+	},
+];
+
+const featureStrip = [
+	{ icon: 'lucide:wrench', label: 'Instalação\ngrátis' },
+	{ icon: 'lucide:gauge', label: 'Teste de velocidade\nna instalação' },
+	{ icon: 'lucide:headphones', label: 'Suporte\ntécnico próprio' },
+];
+---
+
+<section class="relative overflow-hidden bg-[#0a1657]">
+	<!-- background glow -->
+	<div class="pointer-events-none absolute inset-0">
+		<div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-cyan-500/30 blur-3xl"></div>
+		<div class="absolute top-1/3 -left-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl"></div>
+	</div>
+
+	<Header />
+
+	<div class="relative mx-auto max-w-6xl px-6 pt-6 pb-14">
+		<div class="grid items-center gap-10 lg:grid-cols-2">
+			<div>
+				<p class="text-sm font-semibold tracking-[0.2em] text-cyan-300 uppercase">
+					Internet que te conecta mais
+				</p>
+
+				<h1 class="mt-3 text-5xl leading-[1.05] font-black text-white sm:text-6xl">
+					INTERNET
+					<span class="block text-cyan-400">NA VELOCIDADE</span>
+					<span class="block italic">DA LUZ!</span>
+				</h1>
+
+				<p class="mt-6 max-w-md text-lg text-blue-100">
+					Planos com <strong class="text-white">Disney+</strong>, <strong class="text-white">MAX</strong> e muito mais
+					para você e sua família.
+				</p>
+
+				<div class="mt-8 flex flex-wrap items-center gap-4">
+					<span class="text-2xl font-bold tracking-tight text-white">Disney+</span>
+					<span class="h-6 w-px bg-white/30"></span>
+					<span class="text-2xl font-black text-white">max</span>
+				</div>
+			</div>
+
+			<div class="relative flex justify-center">
+				<p
+					class="absolute top-2 right-2 hidden -rotate-6 font-serif text-lg text-white italic opacity-90 sm:block"
+				>
+					Conectar pessoas<br />é o que nos move!
+				</p>
+
+				<div class="relative flex h-72 w-72 items-center justify-center sm:h-96 sm:w-96">
+					<div class="absolute inset-0 rounded-full bg-cyan-400/20 blur-2xl"></div>
+					<div
+						class="relative flex h-56 w-56 items-center justify-center rounded-full border border-cyan-300/40 bg-linear-to-b from-white/10 to-white/0 shadow-[0_0_60px_rgba(34,211,238,0.35)] sm:h-72 sm:w-72"
+					>
+						<Icon name="lucide:wifi" class="h-24 w-24 text-cyan-300 sm:h-32 sm:w-32" />
+					</div>
+					<!--
+						Substitua este bloco pela ilustração oficial do astronauta mascote
+						(ex.: import astronautImg from '../../assets/astronaut.png' + <Image src={astronautImg} alt="Mascote NaveLinkNet" />)
+					-->
+				</div>
+			</div>
+		</div>
+
+		<!-- PRICING CARDS -->
+		<div class="mt-12 grid gap-5 sm:grid-cols-3">
+			{
+				plans.map((plan) => (
+					<div
+						class:list={[
+							'relative rounded-2xl border p-6 backdrop-blur-sm',
+							plan.highlighted
+								? 'border-2 border-cyan-400 bg-white/10 shadow-[0_0_35px_-5px_rgba(56,189,248,0.6)]'
+								: 'border-white/10 bg-white/5',
+						]}
+					>
+						{plan.highlighted && (
+							<span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-cyan-400 px-4 py-1 text-[11px] font-bold whitespace-nowrap text-[#0a1657]">
+								👑 MAIS ESCOLHIDO
+							</span>
+						)}
+
+						<p class="mt-2 text-sm font-bold tracking-wide text-cyan-300 uppercase">{plan.name}</p>
+						<p class="mt-2 text-4xl font-black text-white">{plan.speed}</p>
+						{plan.unit && <p class="-mt-1 text-sm font-bold text-blue-100/80">{plan.unit}</p>}
+
+						<ul class="mt-5 space-y-3 text-sm text-blue-50/90">
+							{plan.features.map((feature) => (
+								<li class="flex items-center gap-2">
+									<Icon name={feature.icon} class="h-4 w-4 shrink-0 text-cyan-300" />
+									{feature.label}
+								</li>
+							))}
+						</ul>
+
+						<p class="mt-6 text-3xl font-black text-white">
+							R$ {plan.price.split(',')[0]}
+							<sup class="text-lg">,{plan.price.split(',')[1]}</sup>
+							<span class="block -mt-1 text-sm font-normal text-blue-100/70">/mês</span>
+						</p>
+
+						<a
+							href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Tenho interesse no ${plan.name}.`)}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="mt-5 flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-sm font-bold text-white shadow-lg shadow-black/20 transition hover:brightness-110"
+						>
+							<Icon name="simple-icons:whatsapp" class="h-4 w-4" />
+							QUERO ESTE PLANO
+						</a>
+					</div>
+				))
+			}
+		</div>
+
+		<!-- FEATURE STRIP -->
+		<div class="mt-10 grid grid-cols-3 gap-4 text-center text-xs text-blue-100/90 sm:text-sm">
+			{
+				featureStrip.map((item, i) => (
+					<div class:list={['flex flex-col items-center gap-2', i === 1 && 'border-x border-white/10']}>
+						<Icon name={item.icon} class="h-6 w-6 text-cyan-300" />
+						<p class="whitespace-pre-line">{item.label}</p>
+					</div>
+				))
+			}
+		</div>
+
+		<!-- MAIN CTA -->
+		<a
+			href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá! Quero contratar um plano NaveLinkNet.')}`}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="mt-8 flex items-center justify-center gap-3 rounded-full bg-[#25D366] py-4 text-base font-extrabold tracking-wide text-white shadow-lg shadow-black/30 transition hover:brightness-110"
+		>
+			<Icon name="simple-icons:whatsapp" class="h-5 w-5" />
+			CONTRATE PELO WHATSAPP
+			<Icon name="lucide:chevron-right" class="h-4 w-4" />
+		</a>
+
+		<p class="mt-4 flex items-center justify-center gap-1.5 text-xs text-blue-100/70">
+			<Icon name="lucide:lock" class="h-3.5 w-3.5" />
+			Seus dados estão seguros conosco.
+		</p>
+	</div>
+</section>
