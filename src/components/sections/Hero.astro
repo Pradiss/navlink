@@ -79,7 +79,8 @@ const featureStrip = [
 						tracking-[0.25em]
 						text-cyan-100
 						uppercase
-						sm:text-[13px]"
+						sm:text-[13px]
+						lg:text-[14px]"
 				>
 					Internet que te conecta mais
 				</p>
@@ -89,9 +90,10 @@ const featureStrip = [
 						text-[36px]
 						leading-[0.88]
 						font-black
-						]
+						tracking-[-0.055em]
 						sm:text-[58px]
-						lg:text-[70px]"
+						lg:text-[70px]
+						xl:text-[78px]"
 				>
 					<span class="block text-white">INTERNET</span>
 				</h1>
@@ -99,9 +101,10 @@ const featureStrip = [
 					class="text-[22px]
 						leading-[0.88]
 						font-black
-						
+						tracking-[-0.055em]
 						sm:text-[58px]
-						lg:text-[70px]"
+						lg:text-[70px]
+						xl:text-[78px]"
 				>
 					<span class="block text-cyan-300">NA VELOCIDADE</span>
 				</h1>
@@ -110,9 +113,10 @@ const featureStrip = [
 					class="text-[36px]
 						leading-[0.88]
 						font-black
-					
+						tracking-[-0.055em]
 						sm:text-[58px]
-						lg:text-[70px]"
+						lg:text-[70px]
+						xl:text-[78px]"
 				>
 					<span class="block text-white">DA LUZ!</span>
 				</h1>
@@ -125,7 +129,9 @@ const featureStrip = [
 						text-blue-50
 						sm:max-w-[400px]
 						sm:text-[18px]
-						lg:text-[19px]"
+						lg:text-[19px]
+						xl:max-w-[440px]
+						xl:text-[20px]"
 				>
 					Planos com
 					<strong class="font-extrabold text-white"> Disney+</strong>,
@@ -140,20 +146,21 @@ const featureStrip = [
 						items-center
 						gap-4
 						sm:mt-7
-						sm:gap-8"
+						sm:gap-8
+						lg:gap-10"
 				>
 					<Image
 						src={disneyLogo}
 						alt="Disney+"
-						class="h-9 w-auto object-contain sm:h-10"
+						class="h-9 w-auto object-contain sm:h-10 lg:h-15"
 					/>
 
-					<div class="h-8 w-px bg-white/30 sm:h-8"></div>
+					<div class="h-8 w-px bg-white/30 sm:h-12"></div>
 
 					<Image
 						src={maxLogo}
 						alt="MAX"
-						class="h-4 w-auto object-contain brightness-0 invert sm:h-10"
+						class="h-4 w-auto object-contain brightness-0 invert sm:h-6 lg:h-8"
 					/>
 				</div>
 			</div>
@@ -177,7 +184,9 @@ const featureStrip = [
 		lg:right-[-7%]
 		lg:top-[45px]
 		lg:h-[680px]
-		lg:w-[720px]"
+		lg:w-[720px]
+		xl:h-[760px]
+		xl:w-[800px]"
 			>
 				<!-- BRILHO ATRÁS DO ASTRONAUTA -->
 				<div
@@ -252,7 +261,8 @@ const featureStrip = [
 			class="relative
 				z-30
 				py-4
-				sm:py-10"
+				sm:py-10
+				lg:py-12"
 		>
 			<div class="grid grid-cols-3">
 				{featureStrip.map((item, index) => (
@@ -270,7 +280,9 @@ const featureStrip = [
 									shrink-0
 									text-cyan-300
 									sm:h-9
-									sm:w-9"
+									sm:w-9
+									lg:h-10
+									lg:w-10"
 						/>
 
 						<div class="leading-tight">
@@ -278,7 +290,8 @@ const featureStrip = [
 								class="text-[8px]
 										font-medium
 										text-white/90
-										sm:text-[15px]"
+										sm:text-[15px]
+										lg:text-[16px]"
 							>
 								{item.title}
 							</p>
@@ -286,7 +299,8 @@ const featureStrip = [
 							<p
 								class="text-[8px]
 										text-white/90
-										sm:text-[15px]"
+										sm:text-[15px]
+										lg:text-[16px]"
 							>
 								{item.text}
 							</p>
