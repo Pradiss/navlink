@@ -107,7 +107,7 @@ const featureStrip = [
 		<div
 			class="
 				relative
-				min-h-[380px]
+				min-h-[300px]
 
 				sm:min-h-[700px]
 
@@ -276,8 +276,8 @@ const featureStrip = [
 	class="
 		pointer-events-none
 		absolute
-		right-[-8%]
-		top-[0px]
+		right-[-9%]
+		top-[20px]
 		z-20
 		h-[280px]
 		w-[250px]
@@ -321,6 +321,8 @@ const featureStrip = [
 			object-contain
 			object-bottom
 			drop-shadow-[0_20px_45px_rgba(0,0,0,0.4)]
+			[mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]
+			[-webkit-mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]
 		"
 		widths={[500, 700, 900]}
 		sizes="(min-width: 1024px) 720px, 65vw"
@@ -337,7 +339,7 @@ const featureStrip = [
 				class="
 					absolute
 					right-[0%]
-					top-[20px]
+					top-[0px]
 					z-30
 					rotate-[-15deg]
 		
@@ -364,37 +366,13 @@ const featureStrip = [
 					nos move!
 				</p>
 
-				<div
-					class="
-						ml-3
-						mt-1
-						h-6
-						w-16
-						rotate-[-15deg]
-						rounded-[50%]
-						border-b-2
-						border-cyan-300
-					"
-				></div>
+				
 
 			</div>
 
 
-			<!-- FADE DA BASE DO HERO -->
-			<div
-				class="
-					pointer-events-none
-					absolute
-					right-0
-					bottom-0
-					left-0
-					z-30
-					h-[100px]
-					bg-gradient-to-t
-					from-[#062b83]
-					to-transparent
-				"
-			></div>
+			
+			
 
 		</div>
 
@@ -650,21 +628,21 @@ const featureStrip = [
 								class="
 									mt-2
 									flex
-									h-[34px]
+									h-[22px]
 									items-center
 									justify-center
 									gap-1
 									rounded-full
 									bg-[#16d957]
 									text-[7px]
-									font-black
+									font-medium
 									text-white
 									shadow-[0_4px_15px_rgba(0,255,100,0.25)]
 									transition
 									hover:brightness-110
 
 									sm:mt-4
-									sm:h-[50px]
+									sm:h-[40px]
 									sm:gap-2
 									sm:text-[13px]
 								"
@@ -672,7 +650,7 @@ const featureStrip = [
 
 								<Icon
 									name="simple-icons:whatsapp"
-									class="h-3.5 w-3.5 sm:h-5 sm:w-5"
+									class="h-2.5 w-2.5 sm:h-5 sm:w-5"
 								/>
 
 								QUERO ESTE PLANO
@@ -696,7 +674,7 @@ const featureStrip = [
 			class="
 				relative
 				z-30
-				py-8
+				py-4
 
 				sm:py-10
 			"
@@ -797,20 +775,6 @@ const featureStrip = [
 	</div>
 
 
-	<!-- FADE FINAL -->
-	<div
-		class="
-			pointer-events-none
-			absolute
-			bottom-0
-			left-0
-			z-50
-			h-[35px]
-			w-full
-			bg-gradient-to-t
-			from-white/90
-			to-transparent
-		"
-	></div>
+	
 
 </section>
