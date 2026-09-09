@@ -2,13 +2,23 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import tv from '../../assets/tv.webp';
+import premiereLogo from '../../assets/logos/premiere-logo.png';
+import futebolLogo from '../../assets/logos/nosso-futebol.png';
+import combateLogo from '../../assets/logos/combate.png';
+import telecineLogo from '../../assets/logos/telecine.png';
+import universalLogo from '../../assets/logos/universal-tv-logo.png';
+import starLogo from '../../assets/logos/Star_logo.svg.webp';
 
 const whatsappNumber = '5500000000000';
 
 const featureIcons = [
 	{ label: 'Filmes\ne séries', icon: 'lucide:clapperboard' },
 	{ label: 'Esportes\nao vivo', icon: 'lucide:goal' },
-	{ label: 'Programação\ninfantil', icon: 'lucide:baby', underline: 'infantil' },
+	{
+		label: 'Programação\ninfantil',
+		icon: 'lucide:baby',
+		underline: 'infantil',
+	},
 	{ label: 'Canais\nde variedades', icon: 'lucide:tv-minimal' },
 ];
 
@@ -31,188 +41,310 @@ const combos = [
 ];
 ---
 
-<section class="relative overflow-hidden bg-linear-to-b from-white via-sky-50 to-sky-100 px-6 py-14">
-	<div class="pointer-events-none absolute -top-10 right-0 h-72 w-72 rounded-full bg-sky-300/30 blur-3xl"></div>
+<section class="relative overflow-hidden bg-linear-to-b from-white via-sky-50 to-sky-100 px-4 py-10 sm:px-6 sm:py-14 lg:py-20">
+	<div class="pointer-events-none absolute -top-10 right-0 h-48 w-48 rounded-full bg-sky-300/30 blur-3xl sm:h-72 sm:w-72"></div>
 
 	<div class="relative mx-auto max-w-6xl">
-		<div class="grid items-center gap-10 lg:grid-cols-2">
-			<div>
-				<span class="inline-block rounded-full bg-sky-100 px-4 py-1.5 text-xs font-bold tracking-[0.15em] text-sky-700 uppercase">
+		<!-- ==================================================
+		     TOPO: TEXTO + TV FLUTUANTE
+		================================================== -->
+		<div
+			class="relative
+				min-h-[230px]
+				sm:min-h-[420px]
+				lg:min-h-[480px]"
+		>
+			<!-- TEXTO -->
+			<div class="relative z-30 w-[62%] sm:w-[58%] lg:w-[55%]">
+				<span class="inline-block rounded-full bg-sky-200 px-3 py-1 text-[10px] font-bold  text-sky-700 uppercase sm:px-4 sm:py-1.5 sm:text-xs">
 					TV por assinatura
 				</span>
 
-				<h2 class="mt-4 text-4xl leading-[1.1] font-black text-[#0a1657] sm:text-5xl">
-					Turbine seu<br />
-					plano com<br />
+				<h2 class="mt-4 text-3xl leading-[1.1] font-black text-[#0a1657] sm:text-4xl lg:text-5xl">
+					Turbine seu
+					<br />
+					plano com
+					<br />
 					<span class="text-sky-500">SKY + FULL</span>
 				</h2>
 
-				<p class="mt-5 max-w-md text-base text-slate-600">
-					Mais de 90 canais com milhares de filmes, séries, esportes e muito mais para toda a família.
+				<p class="mt-4 max-w-md text-sm text-slate-600 sm:mt-5 sm:text-base">
+					Mais de 90 canais com milhares <br /> de filmes, séries, esportes e{' '}
+					<br /> muito mais para toda a família.
 				</p>
-
-				<div class="mt-8 grid grid-cols-4 gap-3 text-center">
-					{
-						featureIcons.map((item) => (
-							<div class="flex flex-col items-center gap-2">
-								<span class="flex h-14 w-14 items-center justify-center rounded-full bg-sky-100 text-sky-500">
-									<Icon name={item.icon} class="h-6 w-6" />
-								</span>
-								<p class="text-xs font-semibold whitespace-pre-line text-slate-700">
-									{item.underline
-										? item.label.split(item.underline).map((part, i, arr) => (
-												<>
-													{part}
-													{i < arr.length - 1 && <span class="underline">{item.underline}</span>}
-												</>
-											))
-										: item.label}
-								</p>
-							</div>
-						))
-					}
-				</div>
 			</div>
 
-			<!-- IMAGEM DA TV -->
-			<div class="relative flex justify-center py-6">
-				<p class="absolute -top-4 right-2 hidden -rotate-6 font-serif text-lg text-sky-600 italic sm:block">
-					Mais<br />entretenimento<br />para o seu dia!
+			<!-- ==================================================
+			     TV FLUTUANTE (mesmo tratamento do astronauta)
+			================================================== -->
+			<div
+				class="pointer-events-none
+					absolute
+					right-[-10%]
+					top-[0px]
+					z-20
+					h-[180px]
+					w-[240px]
+					sm:right-[-8%]
+					sm:top-[0px]
+					sm:h-[380px]
+					sm:w-[420px]
+					lg:right-[-4%]
+					lg:top-[-20px]
+					lg:h-[460px]
+					lg:w-[500px]"
+			>
+				<!-- FRASE MANUSCRITA -->
+				<p
+					class="absolute
+						-top-2
+						right-2
+						hidden
+						-rotate-6
+						font-serif
+						text-lg
+						text-sky-600
+						italic
+						sm:block"
+				>
+					Mais
+					<br />
+					entretenimento
+					<br />
+					para o seu dia!
 				</p>
-
-				<div class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
-					<div class="h-56 w-56 rounded-full bg-sky-300/30 blur-3xl sm:h-72 sm:w-72"></div>
-				</div>
 
 				<Image
 					src={tv}
 					alt="Smart TV exibindo o menu SKY+ com controle remoto"
-					class="w-full max-w-md drop-shadow-2xl"
+					class="relative
+						h-full
+						w-full
+						object-contain
+						object-bottom
+						drop-shadow-[0_20px_45px_rgba(0,0,0,0.3)]"
 					widths={[400, 600, 800]}
-					sizes="(min-width: 1024px) 480px, 90vw"
+					sizes="(min-width: 1024px) 500px, 60vw"
 				/>
 			</div>
+
+			<!-- FADE DA BASE -->
+			<div
+				class="pointer-events-none
+					absolute
+					right-0
+					bottom-0
+					left-0
+					z-10
+					h-[60px]
+					bg-gradient-to-t
+					from-sky-50
+					to-transparent"
+			></div>
 		</div>
 
-		<div class="mt-10 rounded-3xl border border-sky-100 bg-white p-6 shadow-sm sm:p-8">
-			<p class="text-center text-sm font-black tracking-wide text-sky-600 uppercase sm:text-base">
-				Mais de 90 canais com milhares de filmes e séries
-			</p>
+		<!-- ÍCONES DE FEATURES (agora em linha cheia, abaixo do bloco topo) -->
+		<div class="relative z-30  grid grid-cols-4 gap-3 text-center sm:mt-8 sm:grid-cols-4">
+			{featureIcons.map((item) => (
+				<div class="flex flex-col items-center gap-2">
+					<span class="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 text-sky-500 sm:h-14 sm:w-14">
+						<Icon name={item.icon} class="h-5 w-5 sm:h-6 sm:w-6" />
+					</span>
+					<p class="text-[10px] font-medium whitespace-pre-line text-slate-600 sm:text-xs">
+						{item.underline
+							? item.label.split(item.underline).map((part, i, arr) => (
+									<>
+										{part}
+										{i < arr.length - 1 && (
+											<span class="underline">{item.underline}</span>
+										)}
+									</>
+								))
+							: item.label}
+					</p>
+				</div>
+			))}
+		</div>
 
-			<div class="mt-6 grid grid-cols-2 divide-x divide-y divide-slate-100 border-t border-l border-slate-100 sm:grid-cols-4">
-				{
-					channels.map((channel) => (
-						<div class="flex items-center justify-center p-5">
-							{channel.variant === 'premiere' && (
-								<span class="rounded-md border-2 border-green-600 px-3 py-1 text-xs font-black tracking-wide text-green-600">
-									PREMIERE
+		<div class="mt-6 rounded-2xl border border-sky-100 bg-white p-4 shadow-sm sm:mt-10 sm:rounded-3xl sm:p-6 lg:p-8">
+			<div>
+				<p class="text-center text-xs font-bold tracking-wide text-sky-600 uppercase sm:text-sm lg:text-base">
+					Mais de 90 canais com milhares de filmes e séries
+				</p>
+			</div>
+
+			<div class="mt-4 grid grid-cols-4 divide-x divide-y divide-slate-100  sm:mt-6 sm:grid-cols-4">
+				{channels.map((channel) => (
+					<div class="flex items-center justify-center p-3 sm:p-5">
+						{channel.variant === 'premiere' && (
+							<Image
+								src={premiereLogo}
+								alt="Premiere"
+								class="h-5 w-auto object-contain sm:h-7"
+							/>
+						)}
+						{channel.variant === 'futebol' && (
+							<Image
+								src={futebolLogo}
+								alt="Nosso Futebol"
+								class="h-10 w-auto object-contain sm:h-14"
+							/>
+						)}
+						{channel.variant === 'combate' && (
+							<Image
+								src={combateLogo}
+								alt="Combate"
+								class="h-4 w-auto object-contain sm:h-6"
+							/>
+						)}
+						{channel.variant === 'telecine' && (
+							<span class="rounded-md bg-[#0a1657] px-2 py-1.5 sm:px-3 sm:py-2">
+								<Image
+									src={telecineLogo}
+									alt="Telecine"
+									class="h-3 w-auto object-contain sm:h-4"
+								/>
+							</span>
+						)}
+						{channel.variant === 'cinemax' && (
+							<span class="flex items-center gap-1 text-xs font-black text-[#0a1657] sm:text-base">
+								<span class="flex h-4 w-4 items-center justify-center rounded-full border-2 border-[#0a1657] text-[8px] sm:h-5 sm:w-5 sm:text-[10px]">
+									C
 								</span>
-							)}
-							{channel.variant === 'futebol' && (
-								<span class="text-center leading-none">
-									<span class="block text-[10px] font-semibold tracking-wide text-slate-500">NOSSO</span>
-									<span class="block border-b-2 border-lime-500 pb-0.5 text-lg font-black text-[#0a1657]">FUTEBOL</span>
-								</span>
-							)}
-							{channel.variant === 'combate' && (
-								<span class="text-lg font-black text-red-600 italic">COMBATE</span>
-							)}
-							{channel.variant === 'telecine' && (
-								<span class="text-lg font-black">
-									<span class="text-slate-900">TELE</span><span class="text-sky-500">CINE</span>
-								</span>
-							)}
-							{channel.variant === 'cinemax' && (
-								<span class="flex items-center gap-1 text-base font-black text-[#0a1657]">
-									<span class="flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#0a1657] text-[10px]">C</span>
-									CINEMAX
-								</span>
-							)}
-							{channel.variant === 'universal' && (
-								<span class="flex flex-col items-center">
-									<span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-400 text-[8px] font-bold text-slate-500">
-										UNIV.
-									</span>
-									<span class="mt-1 text-[10px] font-bold text-slate-500">TV</span>
-								</span>
-							)}
-							{channel.variant === 'star' && (
-								<span class="flex items-center text-xl font-black text-[#0a1657]">
-									ST
-									<Icon name="lucide:star" class="mx-0.5 h-4 w-4 text-violet-500" />
-									R
-								</span>
-							)}
-							{channel.variant === 'megakids' && (
-								<span class="text-lg font-black">
-									<span class="text-[#0a1657]">MEGA</span> <span class="text-orange-500">KIDS</span>
-								</span>
-							)}
-						</div>
-					))
-				}
+								CINEMAX
+							</span>
+						)}
+						{channel.variant === 'universal' && (
+							<Image
+								src={universalLogo}
+								alt="Universal TV"
+								class="h-9 w-auto object-contain sm:h-12"
+							/>
+						)}
+						{channel.variant === 'star' && (
+							<Image
+								src={starLogo}
+								alt="Star"
+								class="h-4 w-auto object-contain sm:h-6"
+							/>
+						)}
+						{channel.variant === 'megakids' && (
+							<span class="text-sm font-black sm:text-lg">
+								<span class="text-[#0a1657]">MEGA</span>{' '}
+								<span class="text-orange-500">KIDS</span>
+							</span>
+						)}
+					</div>
+				))}
 			</div>
 		</div>
 
-		<p class="mt-10 text-center text-xl font-bold text-[#0a1657]">Seu combo ainda mais completo com:</p>
+		<p class="mt-8 text-center text-lg font-bold text-[#0a1657] sm:mt-10 sm:text-xl">
+			Seu combo ainda mais completo com:
+		</p>
 
-		<div class="mt-6 grid gap-4 sm:grid-cols-2">
-			{
-				combos.map((combo) => (
-					<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-						<div
-							class:list={[
-								'flex h-16 items-center justify-center',
-								combo.variant === 'premiere' && 'bg-green-600',
-								combo.variant === 'combate' && 'bg-[#0a1657]',
-								(combo.variant === 'futebol' || combo.variant === 'telecine') && 'bg-white border-b border-slate-100',
-							]}
-						>
-							{combo.variant === 'premiere' && (
-								<span class="rounded-md border-2 border-white px-3 py-1 text-xs font-black tracking-wide text-white">
-									PREMIERE
-								</span>
-							)}
-							{combo.variant === 'futebol' && (
-								<span class="text-center leading-none">
-									<span class="block text-[10px] font-semibold tracking-wide text-slate-500">NOSSO</span>
-									<span class="block border-b-2 border-lime-500 pb-0.5 text-lg font-black text-[#0a1657]">FUTEBOL</span>
-								</span>
-							)}
-							{combo.variant === 'combate' && <span class="text-lg font-black text-red-500 italic">COMBATE</span>}
-							{combo.variant === 'telecine' && (
-								<span class="text-lg font-black">
-									<span class="text-slate-900">TELE</span><span class="text-sky-500">CINE</span>
-								</span>
-							)}
-						</div>
-
-						<div class="p-5">
-							<p class="text-3xl font-black text-[#0a1657]">
-								R$ {combo.price.split(',')[0]}
-								<span class="text-lg">,{combo.price.split(',')[1]}</span>
-								<span class="text-sm font-normal text-slate-500">/mês</span>
-							</p>
-
-							<a
-								href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Tenho interesse no combo ${combo.name}.`)}`}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="mt-4 flex items-center justify-center gap-2 rounded-full border-2 border-sky-500 py-2.5 text-sm font-bold text-sky-600 transition hover:bg-sky-50"
-							>
-								<Icon name="simple-icons:whatsapp" class="h-4 w-4" />
-								QUERO ESTE COMBO
-								<Icon name="lucide:chevron-right" class="h-4 w-4" />
-							</a>
-						</div>
+		<div class="mt-5 grid grid-cols-2 gap-2.5 sm:mt-6 sm:gap-4">
+			{combos.map((combo) => (
+				<div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm sm:rounded-2xl">
+					<div
+						class:list={[
+							'flex h-12 items-center justify-center border-b border-slate-100 sm:h-16',
+							combo.variant === 'premiere'
+								? 'bg-green-600 border-none'
+								: 'bg-white',
+						]}
+					>
+						{combo.variant === 'premiere' && (
+							<Image
+								src={premiereLogo}
+								alt="Premiere"
+								class="h-5 w-auto object-contain sm:h-7"
+							/>
+						)}
+						{combo.variant === 'futebol' && (
+							<Image
+								src={futebolLogo}
+								alt="Nosso Futebol"
+								class="h-9 w-auto object-contain sm:h-12"
+							/>
+						)}
+						{combo.variant === 'combate' && (
+							<Image
+								src={combateLogo}
+								alt="Combate"
+								class="h-4 w-auto object-contain sm:h-6"
+							/>
+						)}
+						{combo.variant === 'telecine' && (
+							<span class="rounded-md bg-[#0a1657] px-2 py-1.5 sm:px-3 sm:py-2">
+								<Image
+									src={telecineLogo}
+									alt="Telecine"
+									class="h-3 w-auto object-contain sm:h-4"
+								/>
+							</span>
+						)}
 					</div>
-				))
-			}
+
+					<div class="p-3 sm:p-5">
+						<p class="text-lg font-black text-[#0a1657] sm:text-3xl">
+							R$ {combo.price.split(',')[0]}
+							<span class="text-sm sm:text-lg">
+								,{combo.price.split(',')[1]}
+							</span>
+							<span class="block text-[11px] font-normal text-slate-500 sm:text-sm">
+								/mês
+							</span>
+						</p>
+
+						<a
+							href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Tenho interesse no combo ${combo.name}.`)}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="mt-2
+								flex
+								h-[22px]
+								items-center
+								justify-center
+								gap-1
+								rounded-full
+								bg-[#16d957]
+								text-[7px]
+								font-medium
+								text-white
+								shadow-[0_4px_15px_rgba(0,255,100,0.25)]
+								transition
+								hover:brightness-110
+								sm:mt-3
+								sm:h-[32px]
+								sm:gap-1.5
+								sm:text-[10px]
+								md:mt-4
+								md:h-[40px]
+								md:gap-2
+								md:text-[13px]
+								lg:h-[46px]
+								lg:text-[14px]"
+						>
+							<Icon
+								name="simple-icons:whatsapp"
+								class="h-2.5
+									w-2.5
+									sm:h-3.5
+									sm:w-3.5
+									md:h-5
+									md:w-5"
+							/>
+							QUERO ESTE PLANO
+						</a>
+					</div>
+				</div>
+			))}
 		</div>
 
-		<p class="mt-6 text-center text-[11px] leading-snug text-slate-500">
-			*Consulte disponibilidade de canais e planos. **Para adquirir os canais<br />
-			à la carte é necessário obter a SKY+ Full.
+		<p class="mt-6 text-center text-[10px] leading-snug text-slate-500 sm:text-[11px]">
+			*Consulte disponibilidade de canais e planos. **Para adquirir os canais
+			<br />à la carte é necessário obter a SKY+ Full.
 		</p>
 
 		<!-- CTA FINAL -->
@@ -220,11 +352,11 @@ const combos = [
 			href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá! Quero contratar a SKY+ Full.')}`}
 			target="_blank"
 			rel="noopener noreferrer"
-			class="mt-6 flex items-center justify-center gap-3 rounded-full bg-[#25D366] py-4 text-base font-black tracking-wide text-white shadow-lg shadow-green-900/20 transition hover:brightness-110"
+			class="mt-6 flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3.5 text-sm font-black tracking-wide text-white shadow-lg shadow-green-900/20 transition hover:brightness-110 sm:gap-3 sm:py-4 sm:text-base"
 		>
-			<Icon name="simple-icons:whatsapp" class="h-5 w-5" />
+			<Icon name="simple-icons:whatsapp" class="h-4 w-4 sm:h-5 sm:w-5" />
 			CONTRATE PELO WHATSAPP
-			<Icon name="lucide:chevron-right" class="h-5 w-5" />
+			<Icon name="lucide:chevron-right" class="h-4 w-4 sm:h-5 sm:w-5" />
 		</a>
 	</div>
 </section>
