@@ -3,119 +3,239 @@ import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import faixada from '../../assets/faixada.webp';
 
-const cities = 'Limeira, Mogi Mirim, Mogi Guaçu, Iracemápolis, Santo Antônio de Posse, Conchal, Estiva Gerbi e Martinho Prado.';
+const cities =
+	'Limeira, Mogi Mirim, Mogi Guaçu, Iracemápolis, Santo Antônio de Posse, Conchal, Estiva Gerbi e Martinho Prado.';
 
 const stats = [
-	{ label: 'Atendimento\npróximo e humanizado', icon: 'lucide:users' },
-	{ label: 'Qualidade\nnos serviços', icon: 'lucide:award' },
-	{ label: 'Presente em\ndiversas cidades da região', icon: 'lucide:map-pin' },
-	{ label: 'Conectando\nmais pessoas todos os dias', icon: 'lucide:wifi' },
+	{
+		label: 'Atendimento\npróximo e humanizado',
+		icon: 'lucide:users-round',
+	},
+	{
+		label: 'Qualidade\nnos serviços',
+		icon: 'lucide:badge-check',
+	},
+	{
+		label: 'Presente em\ndiversas cidades da região',
+		icon: 'lucide:map-pin',
+	},
+	{
+		label: 'Conectando mais pessoas\ntodos os dias',
+		icon: 'lucide:wifi',
+	},
 ];
 ---
 
-<section class="relative overflow-hidden bg-linear-to-b from-sky-50 via-white to-[#0a1657] px-6 py-16">
-	<div class="relative mx-auto max-w-6xl">
+<section class="relative isolate overflow-hidden">
 
-		<!-- HEADER: logo + selo de anos -->
-		<div class="flex items-center gap-4">
-			<span class="flex items-center gap-2">
-				<span class="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500 text-white">
-					<Icon name="lucide:wifi" class="h-5 w-5" />
+	<!-- ================= FOTO DE FUNDO ================= -->
+	<div class="absolute inset-0 -z-20">
+		<Image
+			src={faixada}
+			alt="Fachada da NaveLinkNet"
+			class="h-full w-full object-cover"
+			widths={[800, 1200, 1600, 1920]}
+			sizes="100vw"
+		/>
+	</div>
+
+	<!-- overlay escuro pra legibilidade do texto -->
+	<div
+		class="absolute inset-0 -z-10 bg-gradient-to-r from-[#09265f]/95 via-[#09265f]/80 to-[#09265f]/30"
+	></div>
+
+	<!-- brilho decorativo -->
+	<div class="pointer-events-none absolute inset-0 -z-10">
+		<div class="absolute top-0 right-0 h-[650px] w-[650px] rounded-full bg-sky-400/10 blur-3xl"></div>
+	</div>
+
+	<div class="relative mx-auto max-w-[1200px] px-6 py-10 sm:px-10 lg:px-12">
+
+		<!-- ================= HEADER ================= -->
+		<header class="flex items-center gap-5">
+
+			<!-- LOGO -->
+			<div class="flex items-center gap-3">
+
+				<div
+					class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500 shadow-sm"
+				>
+					<Icon
+						name="lucide:wifi"
+						class="h-7 w-7 text-white"
+						strokeWidth={2.5}
+					/>
+				</div>
+
+				<div
+					class="text-[26px] font-extrabold tracking-[-0.06em] text-white"
+				>
+					nave<span class="text-sky-400">link</span>net
+					<sup class="ml-0.5 text-[9px] align-top">®</sup>
+				</div>
+
+			</div>
+
+			<!-- DIVISÓRIA -->
+			<div class="h-12 w-px bg-white/25"></div>
+
+			<!-- 10 ANOS -->
+			<div class="flex items-center gap-1">
+
+				<span
+					class="text-[58px] leading-none font-black tracking-[-0.08em] text-sky-400"
+				>
+					10
 				</span>
-				<span class="text-xl font-extrabold tracking-tight text-[#0a1657]">
-					nave<span class="text-sky-500">link</span>net<sup class="text-[10px] font-normal align-super">®</sup>
+
+				<span
+					class="text-[10px] font-bold leading-tight text-white uppercase"
+				>
+					anos
 				</span>
-			</span>
 
-			<span class="h-9 w-px bg-slate-200"></span>
+			</div>
 
-			<span class="relative flex h-14 w-14 items-center justify-center rounded-full border-4 border-sky-500">
-				<span class="flex flex-col items-center leading-none">
-					<span class="text-xl font-black text-sky-500">10</span>
-					<span class="text-[8px] font-bold tracking-widest text-[#0a1657] uppercase">anos</span>
-				</span>
-			</span>
-		</div>
+		</header>
 
-		<!-- CONTEÚDO PRINCIPAL -->
-		<div class="mt-10 grid items-center gap-12 lg:grid-cols-2">
 
-			<div>
-				<span class="inline-block rounded-full bg-sky-100 px-4 py-1.5 text-xs font-bold tracking-[0.15em] text-sky-700 uppercase">
+		<!-- ================= CONTEÚDO ================= -->
+		<div class="relative mt-10 max-w-[560px]">
+
+			<div
+				class="inline-flex rounded-full bg-white/10 px-5 py-2 backdrop-blur-sm"
+			>
+				<span
+					class="text-[14px] font-extrabold tracking-wide text-white uppercase"
+				>
 					Quem somos
 				</span>
-
-				<h2 class="mt-4 text-4xl leading-[1.08] font-black text-[#0a1657] sm:text-5xl">
-					Conectando<br />
-					pessoas desde
-				</h2>
-				<p class="text-6xl leading-none font-black text-sky-500 sm:text-7xl">2014</p>
-
-				<p class="mt-6 max-w-md text-base leading-relaxed text-slate-600">
-					Nascemos com a missão de conectar pessoas e levar mais entretenimento, informação e qualidade de vida
-					para os nossos clientes.
-				</p>
-
-				<p class="mt-4 max-w-md text-base leading-relaxed text-slate-600">
-					Estamos presentes em {cities}
-				</p>
-
-				<p class="mt-4 max-w-md text-base leading-relaxed text-slate-600">
-					Somos referência em qualidade nos serviços e atendimento.
-				</p>
 			</div>
 
-			<!-- FOTO DA FACHADA -->
-			<div class="relative">
-				<div class="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-sky-300/30 blur-3xl"></div>
 
-				<div class="relative overflow-hidden rounded-3xl shadow-2xl shadow-sky-900/20">
-					<Image
-						src={faixada}
-						alt="Fachada da unidade NaveLinkNet"
-						class="aspect-[4/5] w-full object-cover"
-						widths={[400, 600, 800]}
-						sizes="(min-width: 1024px) 500px, 100vw"
-					/>
-					<div class="pointer-events-none absolute inset-0 bg-linear-to-t from-[#0a1657]/40 via-transparent to-transparent"></div>
-				</div>
+			<h2
+				class="mt-5 text-[48px] leading-[0.94] font-black tracking-[-0.045em] text-white sm:text-[58px]"
+			>
+				Conectando<br />
+				pessoas desde
+			</h2>
 
-				<!-- chips flutuantes estilo flâmula -->
-				<div class="absolute -bottom-5 left-6 flex items-center gap-2 rounded-full bg-sky-500 px-4 py-2 shadow-lg shadow-sky-500/30">
-					<Icon name="lucide:shield" class="h-3.5 w-3.5 text-white" />
-					<span class="text-xs font-bold text-white">Marque você</span>
-				</div>
-
-				<div class="absolute -right-3 -bottom-8 flex items-center gap-2 rounded-full bg-[#0a1657] px-4 py-2 shadow-lg shadow-[#0a1657]/30">
-					<Icon name="lucide:wifi" class="h-3.5 w-3.5 text-sky-300" />
-					<span class="text-xs font-bold text-white">Wi-Fi de verdade</span>
-				</div>
+			<div
+				class="mt-1 text-[76px] leading-none font-black tracking-[-0.06em] text-sky-400 sm:text-[88px]"
+			>
+				2014
 			</div>
-		</div>
 
-		<!-- ESTATÍSTICAS -->
-		<div class="mt-16 grid grid-cols-2 gap-y-8 rounded-3xl border border-sky-100 bg-white p-8 shadow-sm sm:grid-cols-4 sm:divide-x sm:divide-slate-100">
-			{
-				stats.map((stat) => (
-					<div class="flex flex-col items-center gap-3 text-center px-2">
-						<span class="flex h-14 w-14 items-center justify-center rounded-full bg-sky-100 text-sky-500">
-							<Icon name={stat.icon} class="h-6 w-6" />
-						</span>
-						<p class="text-sm font-semibold leading-snug whitespace-pre-line text-slate-700">{stat.label}</p>
-					</div>
-				))
-			}
-		</div>
 
-		<!-- TAGLINE -->
-		<div class="mt-14 text-center">
-			<p class="text-sm font-bold tracking-[0.2em] text-[#0a1657] uppercase">
-				Mais que internet,<br />
-				mais conexões para a <span class="text-sky-500">sua vida</span>
+			<p
+				class="mt-7 max-w-[470px] text-[17px] leading-[1.45] text-sky-50/90"
+			>
+				Nascemos com a missão de conectar pessoas e levar mais
+				entretenimento, informação e qualidade de vida para os nossos
+				clientes.
 			</p>
-			<svg viewBox="0 0 120 30" class="mx-auto mt-3 h-6 w-28 text-sky-500">
-				<path d="M5 20 Q 40 30 60 12 T 115 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-			</svg>
+
+
+			<p
+				class="mt-5 max-w-[470px] text-[17px] leading-[1.45] text-sky-50/90"
+			>
+				Estamos presentes em {cities}
+			</p>
+
+
+			<p
+				class="mt-5 max-w-[470px] text-[17px] leading-[1.45] text-sky-50/90"
+			>
+				Somos referência em qualidade nos serviços e atendimento.
+			</p>
+
 		</div>
+
+
+		<!-- ================= CARDS ================= -->
+		<div
+			class="relative z-30 mt-12 rounded-[32px] border border-white/10 bg-white/95 px-5 py-7 shadow-[0_15px_50px_rgba(8,60,120,0.25)] backdrop-blur-sm sm:px-8"
+		>
+
+			<div class="grid grid-cols-2 lg:grid-cols-4">
+
+				{
+					stats.map((stat, index) => (
+						<div
+							class:list={[
+								'flex flex-col items-center justify-center px-5 text-center',
+								index !== 0 && 'border-l border-slate-200',
+								index >= 2 && 'mt-7 border-l-0 sm:mt-0 lg:border-l',
+							]}
+						>
+
+							<div
+								class="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-sky-100"
+							>
+								<Icon
+									name={stat.icon}
+									class="h-8 w-8 text-sky-600"
+									strokeWidth={2}
+								/>
+							</div>
+
+							<p
+								class="mt-4 whitespace-pre-line text-[15px] font-medium leading-[1.25] text-[#24385d]"
+							>
+								{stat.label}
+							</p>
+
+						</div>
+					))
+				}
+
+			</div>
+
+		</div>
+
+
+		<!-- ================= FRASE FINAL ================= -->
+		<div class="relative mt-10 pb-12 text-center">
+
+			<p
+				class="text-[15px] font-medium tracking-[0.28em] text-white uppercase"
+			>
+				Mais que internet,
+			</p>
+
+			<p
+				class="mt-1 text-[17px] font-semibold tracking-[0.22em] text-white uppercase"
+			>
+				Mais conexões para a
+				<span class="font-black text-sky-400">
+					sua vida
+				</span>
+			</p>
+
+
+			<!-- assinatura -->
+			<svg
+				viewBox="0 0 180 45"
+				class="mx-auto mt-3 h-10 w-36 text-sky-400"
+				fill="none"
+			>
+				<path
+					d="M8 31 C40 40 70 35 91 22 C111 10 134 10 169 7"
+					stroke="currentColor"
+					stroke-width="3"
+					stroke-linecap="round"
+				/>
+
+				<path
+					d="M91 22 C102 20 110 15 117 10"
+					stroke="currentColor"
+					stroke-width="3"
+					stroke-linecap="round"
+				/>
+			</svg>
+
+		</div>
+
 	</div>
+
 </section>

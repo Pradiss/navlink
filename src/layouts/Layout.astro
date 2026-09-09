@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
 
 interface Props {
 	title?: string;
@@ -20,5 +21,6 @@ const { title = 'NaveLink Net - Internet na velocidade da luz' } = Astro.props;
 	</head>
 	<body class="bg-white antialiased">
 		<slot />
+		<FloatingWhatsApp />
 	</body>
 </html>
