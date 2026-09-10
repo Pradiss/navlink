@@ -1,16 +1,16 @@
 ---
 import { Icon } from 'astro-icon/components';
 
-const whatsappNumber = '5500000000000';
+const whatsappNumber = '5519989007767';
 
 const plans = [
 	{
 		name: 'COMBO START',
 		speed: '300',
-		unit: 'MEGA',
+		unit: 'MEGAS',
 		features: [
 			{ icon: 'lucide:wifi', label: 'Wi-Fi incluso' },
-			{ icon: 'lucide:monitor-play', label: '2 apps de streaming' },
+			{ icon: 'lucide:monitor-play', label: '2 App Standard' },
 			{ icon: 'lucide:users-round', label: 'Ideal para o dia a dia' },
 		],
 		price: '79,90',
@@ -18,13 +18,13 @@ const plans = [
 	{
 		name: 'COMBO FULL',
 		speed: '850',
-		unit: 'MEGA',
+		unit: 'MEGAS',
 		features: [
 			{ icon: 'lucide:wifi', label: 'Wi-Fi incluso' },
-			{ icon: 'lucide:monitor-play', label: '3 apps de streaming' },
+			{ icon: 'lucide:monitor-play', label: '3 App Standard' },
 			{ icon: 'lucide:users-round', label: 'Ideal para famílias' },
 		],
-		price: '139,80',
+		price: '99,90',
 		highlighted: true,
 	},
 	{
@@ -33,10 +33,10 @@ const plans = [
 		unit: '',
 		features: [
 			{ icon: 'lucide:wifi', label: 'Wi-Fi incluso' },
-			{ icon: 'lucide:monitor-play', label: '4 apps de streaming' },
-			{ icon: 'lucide:users-round', label: 'Máxima performance' },
+			{ icon: 'lucide:monitor-play', label: '1 App Advanced' },
+			{ icon: 'lucide:users-round', label: '1 App Premium' },
 		],
-		price: '169,90',
+		price: '139,80',
 	},
 ];
 ---
@@ -266,7 +266,7 @@ const plans = [
 
 					<!-- BOTÃO DO PLANO -->
 					<a
-						href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá! Tenho interesse no ${plan.name}.`)}`}
+						href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá, gostaria de contratar um plano. Vim do Google.')}`}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="mt-2
