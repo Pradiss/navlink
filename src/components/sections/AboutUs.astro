@@ -2,7 +2,9 @@
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import faixada from '../../assets/faixada.webp';
-import logo from '../../assets/logos/logo.png';
+import logo from '../../assets/logos/logo.webp';
+import design from '../../assets/design.webp';
+import anos from '../../assets/10anos.webp';
 
 const cities =
 	'Limeira, Mogi Mirim, Mogi Guaçu, Iracemápolis, Santo Antônio de Posse, Conchal, Estiva Gerbi e Martinho Prado.';
@@ -46,13 +48,13 @@ const stats = [
 
 			<!-- 10 ANOS -->
 			<div class="flex items-center gap-1">
-				<span class="text-3xl leading-none font-black tracking-[-0.08em] text-sky-500 sm:text-[58px] lg:text-[68px]">
-					10
-				</span>
-
-				<span class="text-[8px] font-bold leading-tight text-[#0a1657] uppercase sm:text-[10px]">
-					anos
-				</span>
+				<Image
+					src={anos}
+					alt="10 anos"
+					class="h-10 w-auto object-contain sm:h-16 lg:h-20"
+					widths={[200, 400]}
+					sizes="200px"
+				/>
 			</div>
 		</header>
 
@@ -146,7 +148,7 @@ const stats = [
 						<Image
 							src={faixada}
 							alt="Fachada da NaveLinkNet"
-							class="h-full w-full "
+							class="h-full w-full"
 							widths={[600, 900, 1200]}
 							sizes="560px"
 						/>
@@ -178,35 +180,24 @@ const stats = [
 
 		<!-- ================= FRASE FINAL ================= -->
 		<div class="relative mt-8 text-center sm:mt-10 lg:mt-14">
-			<p class="text-[11px] font-medium tracking-[0.2em] text-[#0a1657] uppercase sm:text-[15px] sm:tracking-[0.28em] lg:text-[16px]">
+			<p class="text-[11px] font-medium tracking-[0.2em] text-[#0a1657] uppercase sm:text-[15px] sm:tracking-[0.28em] lg:text-[17px]">
 				Mais que internet,
 			</p>
 
-			<p class="mt-1 text-xs font-semibold tracking-[0.15em] text-[#0a1657] uppercase sm:text-[17px] sm:tracking-[0.22em] lg:text-[19px]">
+			<p class="mt-1 text-xs font-semibold tracking-[0.15em] text-[#0a1657] uppercase sm:text-[17px] sm:tracking-[0.22em] lg:text-[20px]">
 				Mais conexões para a
-				<span class="font-black text-sky-500">sua vida</span>
+				<span class="font-black text-sky-500"> sua vida</span>
 			</p>
 
 			<!-- assinatura -->
-			<svg
-				viewBox="0 0 180 45"
-				class="mx-auto mt-2 h-8 w-28 text-sky-500 sm:mt-3 sm:h-10 sm:w-36"
-				fill="none"
-			>
-				<path
-					d="M8 31 C40 40 70 35 91 22 C111 10 134 10 169 7"
-					stroke="currentColor"
-					stroke-width="3"
-					stroke-linecap="round"
-				/>
 
-				<path
-					d="M91 22 C102 20 110 15 117 10"
-					stroke="currentColor"
-					stroke-width="3"
-					stroke-linecap="round"
-				/>
-			</svg>
+			<Image
+				src={design}
+				alt=""
+				class="mx-auto mt-2 h-8 w-auto object-contain sm:mt-3 sm:h-10"
+				widths={[150, 300]}
+				sizes="150px"
+			/>
 		</div>
 	</div>
 </section>

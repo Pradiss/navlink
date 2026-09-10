@@ -2,12 +2,14 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import tv from '../../assets/tv.webp';
-import premiereLogo from '../../assets/logos/premiere-logo.png';
-import futebolLogo from '../../assets/logos/nosso-futebol.png';
-import combateLogo from '../../assets/logos/combate.png';
-import telecineLogo from '../../assets/logos/telecine.png';
-import universalLogo from '../../assets/logos/universal-tv-logo.png';
+import premiereLogo from '../../assets/logos/premiere-logo.webp';
+import futebolLogo from '../../assets/logos/nosso-futebol.webp';
+import combateLogo from '../../assets/logos/combate.webp';
+import telecineLogo from '../../assets/logos/telecine.webp';
+import universalLogo from '../../assets/logos/universal-tv-logo.webp';
 import starLogo from '../../assets/logos/Star_logo.svg.webp';
+import megakidsLogo from '../../assets/logos/megakids-logo.png';
+import cinemaxLogo from '../../assets/logos/cinemax-logo.webp';
 
 const whatsappNumber = '5500000000000';
 
@@ -85,7 +87,7 @@ const combos = [
 						font-black
 						lg:mt-4
 						sm:text-[58px]
-						md:text-[64px] 
+						md:text-[64px]
 						lg:text-[70px]
 						xl:text-[78px]"
 				>
@@ -206,7 +208,7 @@ const combos = [
 								<Image
 									src={futebolLogo}
 									alt="Nosso Futebol"
-									class="h-10 w-auto object-contain sm:h-14 lg:h-16"
+									class="h-11 w-auto object-contain sm:h-14 lg:h-16"
 								/>
 							)}
 							{channel.variant === 'combate' && (
@@ -227,10 +229,11 @@ const combos = [
 							)}
 							{channel.variant === 'cinemax' && (
 								<span class="flex items-center gap-1 text-xs font-black text-[#0a1657] sm:text-base lg:text-lg">
-									<span class="flex h-4 w-4 items-center justify-center rounded-full border-2 border-[#0a1657] text-[8px] sm:h-5 sm:w-5 sm:text-[10px] lg:h-6 lg:w-6 lg:text-xs">
-										C
-									</span>
-									CINEMAX
+									<Image
+										src={cinemaxLogo}
+										alt="Cinemax"
+										class="h-9 w-auto object-contain sm:h-4 lg:h-5"
+									/>
 								</span>
 							)}
 							{channel.variant === 'universal' && (
@@ -248,9 +251,12 @@ const combos = [
 								/>
 							)}
 							{channel.variant === 'megakids' && (
-								<span class="text-sm font-black sm:text-lg lg:text-xl">
-									<span class="text-[#0a1657]">MEGA</span>{' '}
-									<span class="text-orange-500">KIDS</span>
+								<span class="flex items-center gap-1 text-xs font-black text-[#0a1657] sm:text-base lg:text-lg">
+									<Image
+										src={megakidsLogo}
+										alt="Mega Kids"
+										class="h-9 w-auto object-contain sm:h-4 lg:h-5"
+									/>
 								</span>
 							)}
 						</div>
@@ -340,7 +346,7 @@ const combos = [
 						border
 						border-sky-500
 						bg-white
-						text-[8px]
+						text-[11px]
 						font-bold
 						text-sky-600
 						transition
@@ -357,10 +363,10 @@ const combos = [
 							<span class="flex h-4 w-4 items-center justify-center rounded-full sm:h-5 sm:w-5">
 								<Icon
 									name="simple-icons:whatsapp"
-									class="h-2.5 w-2.5 sm:h-3 sm:w-3"
+									class="h-3 w-3 sm:h-3 sm:w-3"
 								/>
 							</span>
-							QUERO ESTE COMBO
+							CONTRATAR
 							<Icon name="lucide:chevron-right" class="h-3 w-3 sm:h-4 sm:w-4" />
 						</a>
 					</div>
