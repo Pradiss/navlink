@@ -2,11 +2,21 @@
 import '../styles/global.css';
 import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
 
+// TODO: trocar pelo ID real do Google Analytics (GA4) assim que a propriedade for criada.
+const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+
 interface Props {
 	title?: string;
+	description?: string;
 }
 
-const { title = 'NaveLink Net - Internet na velocidade da luz' } = Astro.props;
+const {
+	title = 'NaveLinkNet - Internet na velocidade da luz',
+	description = 'Internet fibra de alta velocidade com planos a partir de 300 MEGA, Wi-Fi incluso e streaming (Disney+, MAX). Instalação grátis e suporte técnico próprio na sua região.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL('/og-image.jpg', Astro.site);
 ---
 
 <!doctype html>
@@ -17,7 +27,27 @@ const { title = 'NaveLink Net - Internet na velocidade da luz' } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#062b83" />
+
 		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="NaveLinkNet" />
+		<meta property="og:locale" content="pt_BR" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:image" content={ogImageURL} />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageURL} />
+
 		<script is:inline>
 			if ('scrollRestoration' in history) {
 				history.scrollRestoration = 'manual';
@@ -25,6 +55,20 @@ const { title = 'NaveLink Net - Internet na velocidade da luz' } = Astro.props;
 			if (!location.hash) {
 				window.scrollTo(0, 0);
 			}
+		</script>
+		<!-- Google Analytics (GA4) -->
+		<script
+			is:inline
+			async
+			src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+		></script>
+		<script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', GA_MEASUREMENT_ID);
 		</script>
 	</head>
 	<body class="bg-white antialiased">
